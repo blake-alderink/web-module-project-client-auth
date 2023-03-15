@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 
@@ -19,9 +19,12 @@ useEffect(() => {
 }, [])
 
 const pushAdd = () => {
-    navigate('/addfriend')
+    navigate('/friends/add')
 }
+if (!localStorage.getItem('token')) {
 
+    return <Navigate to='/login' />
+    }
     return <>
         <h1>
             this is the friends list
